@@ -1,3 +1,4 @@
 .idea
 data
 kotidien.desktop
+docker-compose.override.yml

@@ -1,0 +1,10 @@
+name: "kotidien"
+
+services:
+
+  kotidien:
+
+    build:
+      args:
+        PUID: 1000
+        PGID: 1000

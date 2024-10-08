@@ -77,6 +77,9 @@ RUN pyinstaller \
 
 FROM python:3.12.7-slim-bookworm
 
+ARG PUID=1000
+ARG PGID=1000
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV XDG_RUNTIME_DIR=/tmp/runtime-kotidien
 
@@ -113,7 +116,8 @@ COPY --from=build /app/dist /app/dist
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN useradd -u 1000 -m kotidien
+RUN groupadd -g ${PGID} kotidien
+RUN useradd -u ${PUID} -g ${PGID} -m kotidien
 
 USER kotidien
 
