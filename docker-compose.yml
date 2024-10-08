@@ -1,0 +1,23 @@
+name: "kotidien"
+
+services:
+
+  kotidien:
+
+    container_name: "kotidien"
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kotidien
+
+    environment :
+      DISPLAY: ":0.0"
+
+    network_mode: "host"
+
+    volumes:
+      - ${HOME}/.Xauthority:/home/kotidien/.Xauthority:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./data/data:/home/kotidien/data:rw
+      - ./data/config:/home/kotidien/.Kotidien:rw

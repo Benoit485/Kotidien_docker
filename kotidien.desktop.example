@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Kotidien
+Comment=financial management
+Comment[fr]=Gestionnaire de finances
+Exec=docker compose -f /opt/docker-apps/kotidien/docker-compose.yml up
+Icon=kotidien
+Categories=Office;Finance;
+StartupNotify=true
